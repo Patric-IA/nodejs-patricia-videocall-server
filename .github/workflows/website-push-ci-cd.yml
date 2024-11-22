@@ -23,7 +23,7 @@ jobs:
       - name: Add SSH known hosts
         run: ssh-keyscan -H ${{ secrets.EC2_HOST }} >> ~/.ssh/known_hosts
 
-      - name: Copy application files and .env file to EC2
+      - name: Copy application files  file to EC2
         run: |
           EC2_USER=${{ secrets.EC2_USER }}
           EC2_HOST=${{ secrets.EC2_HOST }}
@@ -34,7 +34,6 @@ jobs:
 
           # Transferir los archivos de la aplicación
           scp -i $PEM_FILE -r ./* $EC2_USER@$EC2_HOST:/home/$EC2_USER/app/
-          scp -i $PEM_FILE .env $EC2_USER@$EC2_HOST:/home/$EC2_USER/app/
 
       - name: Run Docker setup and deploy application
         run: |
