@@ -37,6 +37,12 @@ io.on("connection", (socket) => {
         socketId: socket.id,
         profile: supabaseUser.full_name,
         imageUrl: supabaseUser?.imageUrl,
+        is_top: supabaseUser?.is_top,
+        nivel_ingles: supabaseUser?.nivel_ingles,
+        bio: supabaseUser?.bio,
+        estrellas: supabaseUser?.estrellas,
+        porcentaje: supabaseUser?.porcentaje,
+        flag: supabaseUser?.flag,
       });
     }
     // send active users
