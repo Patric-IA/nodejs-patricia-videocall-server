@@ -18,9 +18,8 @@ app.use(cors());
 const server = createServer(app);
 export let io = new Server(server, {
   cors: {
-    origin: "*", // Cambia '*' por el origen correcto si no es abierto
+    origin: "*",
     methods: ["GET", "POST"],
-    credentials: true,
   },
 });
 
